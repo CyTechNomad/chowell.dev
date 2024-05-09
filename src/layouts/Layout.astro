@@ -1,10 +1,13 @@
 ---
-import Linkedin from "../../../icons/linkedin.svg";
-import github from "../../../icons/github.svg";
+import Linkedin from "../../../icons/linkedin-white.svg";
+import github from "../../../icons/github-white.svg";
 export interface Props {
   title: string;
 }
 
+const primaryColor = "#857D7A";
+const secondaryColor = "#738C7A";
+const tertiaryColor = "#7D7A85";
 const { title } = Astro.props;
 ---
 
@@ -12,69 +15,136 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
     <title>{title}</title>
   </head>
-  <body>
-    <div class="nav_row">
-      <h1 class="title">{title}</h1>
-      <nav>
-        <a href="https://www.linkedin.com/in/christian-howell-b025571a4/"
-          ><img src={Linkedin} alt="Linked in" class="svg" /></a
-        >
-        <a href="https://github.com/Bilrik"
-          ><img src={github} alt="Github" class="svg" /></a
-        >
-      </nav>
-    </div>
+  <div class="nav_row">
+    <a
+      href="/"
+      class="title"
+    >
+      {title}
+    </a>
+    <nav class="tabs">
+      <a
+        href="/blog"
+        class="tab"
+      >
+        <p>Blog</p>
+      </a>
+      <a
+        href="/about"
+        class="tab"
+      >
+        <p>About</p>
+      </a>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/christian-howell-b025571a4/">
+          <img
+            src={Linkedin}
+            alt="Linked in"
+            class="svg"
+          />
+        </a>
+        <a href="https://github.com/CyTechNomad"
+          ><img
+            src={github}
+            alt="Github"
+            class="svg"
+          />
+        </a>
+      </div>
+    </nav>
+  </div>
 
-    <slot />
-  </body>
+  <slot />
+
+  <style scoped define:vars={{ primaryColor, secondaryColor, tertiaryColor }}>
+    :root {
+      color: white;
+      --accent: 124, 58, 237;
+      --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+      background-color: var(--primaryColor);
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+    }
+    .title {
+      text-decoration: none;
+      font-size: 2.2rem;
+      color: #ffffff;
+      text-shadow: rgb(27, 27, 27) 0px 0px 10px;
+    }
+    nav {
+      margin-top: 0rem;
+      padding-top: 0rem;
+    }
+    .tab {
+      margin-top: 0rem;
+      text-decoration: none;
+      font-size: 1.25rem;
+      color: #ffffff;
+      padding: 0.5rem;
+    }
+    .tabs {
+      margin-top: 0rem;
+      padding-top: 0rem;
+      margin-right: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: space-around;
+      justify-items: center;
+      align-items: center;
+    }
+    .tab:hover {
+      background-color: var(--tertiaryColor);
+    }
+    .nav_row {
+      width: auto;
+      max-width: none;
+      background-color: var(--secondaryColor);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-bottom: white 0.5rem solid;
+    }
+    .socials {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .svg {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+
+    html {
+      font-family: system-ui, sans-serif;
+      background-color: #f6f6f6;
+    }
+    code {
+      font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+        Courier New, monospace;
+    }
+  </style>
+
+
 </html>
-<style scoped>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-    background-color: #89ABE3FF;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-  }
-  .title{
-    font-size: 2rem;
-    color: #FFFFFF;
-    text-shadow: black 0px 0px 10px;
-  }
-  .nav_row {
-    background-color: #EA738DFF;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .svg {
-    height: 2.5rem;
-    width: 2.5rem;
-  }
-
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-</style>

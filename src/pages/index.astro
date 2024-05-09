@@ -1,29 +1,72 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Selfie from "../../../photos/chowell.jpeg";
-// import Screenshot from "../../../photos/screenshot.png";
 import Card from "../components/Card.astro";
+import toast from "../../../images/pixel_developer.png";
+import ferris from "../../icons/ferris.svg";
+
+const primaryColor = "#857D7A";
+const secondaryColor = "#738C7A";
+const tertiaryColor = "#7D7A85";
 ---
 
 <Layout title="CHowell.Dev">
-  <!-- <img src={Screenshot} alt="Screenshot of the IDE" class="screenshot" /> -->
- <main>
-    <h2 class="name">Christian C. Howell</h2>
-    <p class="positon">Full Stack Developer</p>
-    <div class="imageandcards">
-      <img src={Selfie} alt="Image of Christian C. Howell" class="selfie" />
+  <main>
+    <div class="imageandtitle">
+      <div class="nameandjob">
+        <h2 class="name">Christian C. Howell</h2>
+        <p class="job-title">Software Developer</p>
+      </div>
+      <img
+        src={toast}
+        alt="Image of Christian C. Howell"
+        class="selfie"
+      />
+    </div>
+    <div class="experienceandprojects">
+      <div class="resume">
+        <h3>Skills</h3>
+        <ul>
+          <li>Source Control</li>
+          <li>CI/CD</li>
+          <li>Infrastructure as Code</li>
+          <li>Go</li>
+          <li>Rust</li>
+          <li>Powershell</li>
+        </ul>
+        <h3>Experience</h3>
+        <ul>
+          <li>2+ Years Software Development at First Orion</li>
+          <li>2 Years IT support at University of Arkansas Community College at Morrilton</li>
+        </ul>
+        <h3>Education</h3>
+        <ul>
+          <li>Apprenticeship focused in software development hosted by First Orion</li>
+          <li>
+            AS in Computer Information Systems and Technology from University of Arkansas Community College at Morrilton
+          </li>
+        </ul>
+      </div>
+
       <div class="cards">
-        <Card title="Projects" body="Check out some of my personal works"></Card>
-        <Card title="Projects" body="Check out some of my personal works"></Card>
-        <Card title="Projects" body="Check out some of my personal works"></Card>
-        <Card title="Projects" body="Check out some of my personal works"></Card>
-        <Card title="Projects" body="Check out some of my personal works"></Card>
+        <h3>Projects</h3>
+        <Card
+          title="RolleR"
+          body="A simple, yet powerfull, dice roller in you terminal written in Rust."
+          href="https://github.com/CyTechNomad/RolleR"
+          src={ferris}
+          alt="Unofficial Rust mascot, Ferris the crab."
+        />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </div>
     </div>
   </main>
 </Layout>
 
-<style>
+<style define:vars={{ primaryColor, secondaryColor, tertiaryColor }}>
   main {
     display: flex;
     flex-direction: column;
@@ -42,29 +85,64 @@ import Card from "../components/Card.astro";
     margin: auto;
     margin-top: 2.5rem;
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 750;
   }
-  .positon {
+  .job-title {
     font-size: 1.5rem;
     font-weight: 400;
     margin-left: 50%;
+    color: white;
   }
 
-  .imageandcards{
-    display:flex;
-    flex-flow:row;
-    justify-content: space-between;
+  .imageandtitle {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
     align-items: center;
+    padding: 2.5rem;
+    .nameandjob {
+      display: flex;
+      flex-flow: column;
+      text-align: right;
+      justify-content: center;
+      align-self: flex-start;
+    }
   }
-  .cards{
-    flex-flow:column;
+  .cards {
+    flex-flow: column;
+    align-self: flex-end;
   }
   .selfie {
     min-height: 15rem;
     min-width: 15rem;
     height: 20%;
     width: 20%;
-    border-radius: 25%;
+  }
+
+  .experienceandprojects {
+    display: flex;
+    flex-flow: row;
+    padding: 2.5rem;
+    justify-content: space-between;
+  }
+
+  .resume {
+    margin-right: 1rem;
+    display: flex;
+    flex-flow: column;
+    align-items: left;
+  }
+  .resume h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
+  }
+  .resume ul {
+    padding: 0;
+  }
+  .resume li {
+    margin-bottom: 0.25rem;
   }
   @media (max-width: 800px) {
     .screenshot {
@@ -78,15 +156,14 @@ import Card from "../components/Card.astro";
     }
   }
   .screenshot {
-   
     position: absolute;
     bottom: auto;
     min-height: 15rem;
     min-width: 15rem;
     height: 50%;
     width: 50%;
-    right:0px;
-    bottom:0px;
+    right: 0px;
+    bottom: 0px;
     filter: blur(3.5px);
   }
 </style>
