@@ -4,6 +4,7 @@ import Selfie from "../../../photos/chowell.jpeg";
 import Card from "../components/Card.astro";
 import toast from "../../../images/pixel_developer.png";
 import ferris from "../../icons/ferris.svg";
+import astro from "../../icons/Astro.svg";
 
 const primaryColor = "#857D7A";
 const secondaryColor = "#738C7A";
@@ -57,7 +58,13 @@ const tertiaryColor = "#7D7A85";
           src={ferris}
           alt="Unofficial Rust mascot, Ferris the crab."
         />
-        <Card />
+        <Card
+          title="chowell.dev"
+          body="This very site. A static site built with Astro."
+          href="https://github.com/CyTechNomad/chowell.dev"
+          src={astro}
+          alt="Astro logo"
+        />
         <Card />
         <Card />
         <Card />
@@ -99,7 +106,9 @@ const tertiaryColor = "#7D7A85";
     flex-flow: row;
     justify-content: space-around;
     align-items: center;
-    padding: 2.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 1rem;
     .nameandjob {
       display: flex;
       flex-flow: column;
