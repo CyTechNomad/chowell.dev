@@ -17,7 +17,7 @@ import astro from "../../icons/Astro.svg";
       <img
         src={toast}
         alt="Image of Christian C. Howell"
-        class="selfie"
+        class="representation"
       />
     </div>
     <div class="experienceandprojects">
@@ -45,7 +45,7 @@ import astro from "../../icons/Astro.svg";
         </ul>
       </div>
 
-      <div class="cards">
+      <div class="projects">
         <h3>Projects</h3>
         <Card
           title="chowell.dev"
@@ -81,19 +81,6 @@ import astro from "../../icons/Astro.svg";
     margin: 0;
   }
 
-  .name {
-    margin: auto;
-    margin-top: 2.5rem;
-    font-size: 3rem;
-    font-weight: 750;
-  }
-  .job-title {
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-left: 50%;
-    color: white;
-  }
-
   .imageandtitle {
     display: flex;
     flex-flow: row;
@@ -101,71 +88,80 @@ import astro from "../../icons/Astro.svg";
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     padding-top: 1rem;
-  }
-  .nameandjob {
-    display: flex;
-    flex-flow: column;
-    text-align: right;
-    align-self: center;
-  }
-  .cards {
-    flex-flow: column;
-    align-self: flex-start;
-  }
-  .selfie {
-    min-height: 15rem;
-    min-width: 15rem;
-    height: 20%;
-    width: 20%;
+    gap: 2.5rem;
+    .nameandjob {
+      display: flex;
+      flex-flow: column;
+      text-align: right;
+      align-self: center;
+      justify-content: center;
+      .name {
+        margin: auto;
+        margin-top: 2.5rem;
+        font-size: 3rem;
+        font-weight: 750;
+      }
+      .job-title {
+        font-size: 1.5rem;
+        font-weight: 400;
+        align-self: right;
+        color: white;
+      }
+    }
+    .representation {
+      max-width: 25vw;
+    }
   }
 
   .experienceandprojects {
     display: flex;
     flex-flow: row;
+    gap: 2.5rem;
     padding: 2.5rem;
     justify-content: space-between;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+      margin-bottom: 0rem;
+    }
+    .resume {
+      display: flex;
+      flex-flow: column;
+      ul {
+        margin-left: 1rem;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 0.25rem;
+      }
+    }
+    .projects {
+      flex-flow: column;
+    }
   }
 
-  .resume {
-    margin-right: 1rem;
-    display: flex;
-    flex-flow: column;
-  }
-  .resume ul {
-    margin-left: 1rem;
-  }
-  .experienceandprojects h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 0.5rem;
-    margin-bottom: 0rem;
-  }
-  .resume ul {
-    padding: 0;
-  }
-  .resume li {
-    margin-bottom: 0.25rem;
-  }
   @media (max-width: 800px) {
-    .screenshot {
-      display: none;
+    .imageandtitle {
+      padding: 0;
+      gap: 0;
+      .nameandjob {
+        text-align: center;
+        .name {
+          font-size: 2rem;
+        }
+        .job-title {
+          font-size: 1.25rem;
+        }
+      }
+      .representation {
+        display: none;
+      }
     }
-  }
-
-  @media (max-height: 700px) {
-    .screenshot {
-      display: none;
+    .experienceandprojects {
+      flex-flow: column;
+      padding: 0;
     }
-  }
-  .screenshot {
-    position: absolute;
-    bottom: auto;
-    min-height: 15rem;
-    min-width: 15rem;
-    height: 50%;
-    width: 50%;
-    right: 0px;
-    bottom: 0px;
-    filter: blur(3.5px);
   }
 </style>
