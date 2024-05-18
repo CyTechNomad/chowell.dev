@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { secondaryColor } from "../../public/styles/colors.astro";
 import selfie from "../../photos/chowell.jpeg";
 import json from "../../images/json_gopher.gif";
 ---
@@ -15,9 +16,16 @@ import json from "../../images/json_gopher.gif";
       <div>
         <h3>Who am I?</h3>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia dignissimos, reprehenderit, ipsam quibusdam
-          totam sapiente veritatis tenetur maxime praesentium ad quae atque explicabo! Eius nemo doloribus eaque,
-          consequuntur sed culpa.
+          Hi, I'm Christian. I'm a God fearing, father, husband, eagle scout, and software engineer. I love learning new
+          things and solving problems. I'm always looking for new opportunities to challenge myself. I'm currently
+          working as a software engineer at
+          <a
+            href="https://www.firstorion.com"
+            target="_blank"
+            >First Orion</a
+          >
+          in my home state of Arkansas. Outside of work, I enjoy spending time with my family and friends, hiking, and playing
+          video games.
         </p>
       </div>
     </div>
@@ -25,9 +33,10 @@ import json from "../../images/json_gopher.gif";
       <div>
         <h3>Passion for backend</h3>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia dignissimos, reprehenderit, ipsam quibusdam
-          totam sapiente veritatis tenetur maxime praesentium ad quae atque explicabo! Eius nemo doloribus eaque,
-          consequuntur sed culpa.
+          I love everything about what I do, but I'm most passionate about backend development. I enjoy working with
+          APIs, databases, and serverless technologies. I have experience with a variety of technologies including Go,
+          Node.js, Python, and Java. I'm also experienced docker, kubernetes, and cloud technologies such as AWS.
+          Creating new services and optimizing existing ones is something I find very rewarding.
         </p>
       </div>
       <img
@@ -38,7 +47,7 @@ import json from "../../images/json_gopher.gif";
   </main>
 </Layout>
 
-<style>
+<style scoped>
   main {
     width: 60%;
     align-self: center;
@@ -49,17 +58,37 @@ import json from "../../images/json_gopher.gif";
   }
   img {
     border-radius: 25%;
-    width: 10vw;
-    margin: 10%;
+    width: 25vw;
+  }
+
+  a {
+    color: blue;
   }
   .section {
     display: flex;
+    gap: 4rem;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     margin: 1rem;
+    h3 {
+      font-weight: 650;
+    }
   }
-  .section div {
-    width: 45%;
+
+  @media (max-width: 800px) {
+    main {
+      width: 90%;
+    }
+    .section {
+      flex-direction: column;
+      gap: 0;
+      img {
+        order: 1;
+      }
+      div {
+        order: 2;
+      }
+    }
   }
 </style>
