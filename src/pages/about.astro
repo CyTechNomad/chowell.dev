@@ -1,13 +1,65 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import selfie from "../../photos/chowell.jpeg";
+import json from "../../images/json_gopher.gif";
 ---
 
 <Layout title="CHowell.Dev">
   <main>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum reprehenderit recusandae tenetur aliquam error
-      rem perferendis, natus est facere totam beatae eum temporibus sapiente libero sunt officia earum sint
-      perspiciatis.
-    </p>
+    <h2>About Me</h2>
+    <div class="section">
+      <img
+        src={selfie}
+        alt="Photo of Christian C. Howell"
+      />
+      <div>
+        <h3>Who am I?</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia dignissimos, reprehenderit, ipsam quibusdam
+          totam sapiente veritatis tenetur maxime praesentium ad quae atque explicabo! Eius nemo doloribus eaque,
+          consequuntur sed culpa.
+        </p>
+      </div>
+    </div>
+    <div class="section">
+      <div>
+        <h3>Passion for backend</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia dignissimos, reprehenderit, ipsam quibusdam
+          totam sapiente veritatis tenetur maxime praesentium ad quae atque explicabo! Eius nemo doloribus eaque,
+          consequuntur sed culpa.
+        </p>
+      </div>
+      <img
+        src={json}
+        alt="Go Gopher using laptop with JSON on screen"
+      />
+    </div>
   </main>
 </Layout>
+
+<style>
+  main {
+    width: 60%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  img {
+    border-radius: 25%;
+    width: 10vw;
+    margin: 10%;
+  }
+  .section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem;
+  }
+  .section div {
+    width: 45%;
+  }
+</style>

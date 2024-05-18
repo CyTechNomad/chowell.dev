@@ -5,10 +5,6 @@ import Card from "../components/Card.astro";
 import toast from "../../../images/pixel_developer.png";
 import ferris from "../../icons/ferris.svg";
 import astro from "../../icons/Astro.svg";
-
-const primaryColor = "#857D7A";
-const secondaryColor = "#738C7A";
-const tertiaryColor = "#7D7A85";
 ---
 
 <Layout title="CHowell.Dev">
@@ -52,34 +48,31 @@ const tertiaryColor = "#7D7A85";
       <div class="cards">
         <h3>Projects</h3>
         <Card
-          title="RolleR"
-          body="A simple, yet powerful, dice roller in you terminal written in Rust."
-          href="https://github.com/CyTechNomad/RolleR"
-          src={ferris}
-          alt="Unofficial Rust mascot, Ferris the crab."
-        />
-        <Card
           title="chowell.dev"
           body="This very site. A static site built with Astro."
           href="https://github.com/CyTechNomad/chowell.dev"
           src={astro}
           alt="Astro logo"
         />
-        <Card />
-        <Card />
-        <Card />
+        <Card
+          title="RolleR"
+          body="A simple, yet powerful, dice roller in your terminal written in Rust."
+          href="https://github.com/CyTechNomad/RolleR"
+          src={ferris}
+          alt="Unofficial Rust mascot, Ferris the crab."
+        />
       </div>
     </div>
   </main>
 </Layout>
 
-<style define:vars={{ primaryColor, secondaryColor, tertiaryColor }}>
+<style scoped>
   main {
     display: flex;
     flex-direction: column;
     margin: auto;
     padding: 1.5rem;
-    max-width: 85vw;
+    max-width: 70vw;
     z-index: 100000;
   }
   h1 {
@@ -105,21 +98,19 @@ const tertiaryColor = "#7D7A85";
     display: flex;
     flex-flow: row;
     justify-content: space-around;
-    align-items: center;
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     padding-top: 1rem;
-    .nameandjob {
-      display: flex;
-      flex-flow: column;
-      text-align: right;
-      justify-content: center;
-      align-self: flex-start;
-    }
+  }
+  .nameandjob {
+    display: flex;
+    flex-flow: column;
+    text-align: right;
+    align-self: center;
   }
   .cards {
     flex-flow: column;
-    align-self: flex-end;
+    align-self: flex-start;
   }
   .selfie {
     min-height: 15rem;
@@ -139,7 +130,9 @@ const tertiaryColor = "#7D7A85";
     margin-right: 1rem;
     display: flex;
     flex-flow: column;
-    align-items: left;
+  }
+  .resume ul {
+    margin-left: 1rem;
   }
   .experienceandprojects h3 {
     font-size: 1.5rem;
