@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import type { MarkdownContent } from "astro";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../../content/blog/*.md");
+
+  return posts.map((post: MarkdownContent) => ({
+    params: {
+      slug: post.frontmatter.slug,
+    },
+    props: {
+      post,
+    },
+  }));
+}
+const { Content } = Astro.props.post;
+---
+
+<Layout title="CHowell.Dev">
+  <article>
+    <Content />
+  </article>
+</Layout>
+
+<style>
+  article {
+    max-width: 80vw;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 2rem;
+    background-color: whitesmoke;
+    color: black;
+  }
+  @media (800px) {
+    article {
+      max-width: 90vw;
+      padding: 1rem;
+    }
+  }
+</style>

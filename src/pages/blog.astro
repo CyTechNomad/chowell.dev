@@ -1,10 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Construction from "../components/construction.astro";
+const posts = await Astro.glob("../content/blog/*.md");
 ---
 
 <Layout title="CHowell.Dev">
   <main>
-    <Construction />
+    <h1>Blog</h1>
+    <ul>
+      {
+        posts.map((p) => (
+          <li>
+            <a href={p.frontmatter.url}>{p.frontmatter.title}</a>
+          </li>
+        ))
+      }
+    </ul>
   </main>
 </Layout>
