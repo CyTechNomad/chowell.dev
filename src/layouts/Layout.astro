@@ -10,7 +10,7 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -77,6 +77,7 @@ const { title } = Astro.props;
 
   <style scoped define:vars={{ primaryColor, secondaryColor, tertiaryColor }}>
     :root {
+      width: 100svw;
       font-size: 1.05rem;
       color: white;
       --accent: 124, 58, 237;
@@ -146,8 +147,15 @@ const { title } = Astro.props;
       background-color: #f6f6f6;
     }
     code {
-      font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
-        Courier New, monospace;
+      font-family:
+        Menlo,
+        Monaco,
+        Lucida Console,
+        Liberation Mono,
+        DejaVu Sans Mono,
+        Bitstream Vera Sans Mono,
+        Courier New,
+        monospace;
     }
 
     @media (max-width: 800px) {
