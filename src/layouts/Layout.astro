@@ -77,7 +77,7 @@ const { title } = Astro.props;
 
   <style scoped define:vars={{ primaryColor, secondaryColor, tertiaryColor }}>
     :root {
-      width: 100svw;
+      width: 100%;
       font-size: 1.05rem;
       color: white;
       --accent: 124, 58, 237;
@@ -121,7 +121,6 @@ const { title } = Astro.props;
       background-color: var(--tertiaryColor);
     }
     .nav_row {
-      width: auto;
       max-width: none;
       background-color: var(--secondaryColor);
       display: flex;
