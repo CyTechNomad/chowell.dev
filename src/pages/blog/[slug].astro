@@ -1,0 +1,60 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { getEntryBySlug } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts.map((post: CollectionEntry<"blog">) => ({
+    params: {
+      slug: post.slug,
+    },
+    props: {
+      post,
+    },
+  }));
+}
+
+const post = await getEntryBySlug("blog", Astro.params.slug);
+const { Content } = await post.render();
+---
+
+<Layout title="CHowell.Dev">
+  <article>
+    <Content />
+  </article>
+</Layout>
+
+<style>
+  article {
+    border-radius: 1rem;
+    max-width: 80vw;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    padding-top: 1.5rem;
+    background-color: whitesmoke;
+    color: black;
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    * {
+      .astro-code {
+        padding: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    article {
+      max-width: 100vw;
+      padding: 1rem;
+      margin: 0;
+    }
+  }
+</style>

@@ -1,10 +1,39 @@
 ---
+import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import Construction from "../components/construction.astro";
+import Card from "../components/blogCard.astro";
+const posts = await getCollection("blog");
 ---
 
 <Layout title="CHowell.Dev">
   <main>
-    <Construction />
+    <h1>Blog</h1>
+    <div>
+      {
+        posts.map((post) => (
+          <Card
+            slug={post.slug}
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            tags={post.data.tags}
+          />
+        ))
+      }
+    </div>
   </main>
 </Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  div {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+    gap: 1rem;
+  }
+</style>
