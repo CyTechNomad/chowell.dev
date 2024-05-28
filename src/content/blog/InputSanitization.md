@@ -26,6 +26,7 @@ Without proper input sanitization, your application is vulnerable to various sec
 Try to follow these 5 best practices to ensure that your application is secure and protected from common security threats:
 
 1. **Use Prepared Statements**:
+
    When interacting with a database, always use prepared statements or parameterized queries to prevent SQL injection attacks.
 
    Prepared statements separate SQL code from user input, ensuring that input values are treated as data, not executable code.
@@ -36,6 +37,7 @@ Try to follow these 5 best practices to ensure that your application is secure a
    ```
 
 2. **Validate Input on Both Client and Server Sides**:
+
    While client-side validation provides a good user experience by providing immediate feedback, it can be bypassed by attackers. Therefore, always enforce validation rules on the server side as well.
 
    ```javascript
@@ -57,6 +59,7 @@ Try to follow these 5 best practices to ensure that your application is secure a
    ```
 
 3. **Escape User Input**:
+
    Properly escape output to ensure that any data rendered in the web page is not executed as code. For example, use functions provided by frameworks to safely escape HTML, JavaScript, and other content types.
 
    ```html
@@ -65,8 +68,11 @@ Try to follow these 5 best practices to ensure that your application is secure a
    ```
 
 4. **Use Security Libraries and Frameworks**:
+
    Utilize well-maintained security libraries and frameworks that offer built-in sanitization and validation functions. These tools are designed to handle a wide range of inputs securely.
+
 5. **Implement Content Security Policy (CSP)**:
+
    CSP is a security feature that helps prevent XSS attacks by specifying which sources of content are trusted. Configuring a robust CSP can greatly reduce the risk of executing malicious scripts.
 
 ## Conclusion
