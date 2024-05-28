@@ -2,7 +2,7 @@
 title: "The Importance of Input Sanitization: Safeguarding Your Application"
 description: "Learn about the importance of input sanitization in web development and how it can help safeguard your application from security threats."
 date: 2024-05-20
-tags: ["security", "input sanitization", "web development"]
+tags: ["Security", "Developer Tips", "Web Development"]
 ---
 
 # The Importance of Input Sanitization: Safeguarding Your Application

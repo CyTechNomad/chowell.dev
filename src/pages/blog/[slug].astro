@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 }
 
 const post = await getEntryBySlug("blog", Astro.params.slug);
-const { Content, headings } = await post.render();
+const { Content } = await post.render();
 ---
 
 <Layout title="CHowell.Dev">
@@ -28,6 +28,7 @@ const { Content, headings } = await post.render();
 
 <style>
   article {
+    border-radius: 1rem;
     max-width: 80vw;
     margin: 0 auto;
     margin-top: 1.5rem;
@@ -36,6 +37,12 @@ const { Content, headings } = await post.render();
     padding-top: 1.5rem;
     background-color: whitesmoke;
     color: black;
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
     * {
       .astro-code {
         padding: 1rem;
