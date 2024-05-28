@@ -1,19 +1,24 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-const posts = await Astro.glob("../content/blog/*.md");
+import Card from "../components/blogCard.astro";
+import type { MarkdownContent } from "astro";
+const posts = await getCollection("blog");
 ---
 
 <Layout title="CHowell.Dev">
   <main>
     <h1>Blog</h1>
-    <ul>
+    <div>
       {
-        posts.map((p) => (
-          <li>
-            <a href={p.frontmatter.url}>{p.frontmatter.title}</a>
-          </li>
+        posts.map((post) => (
+          <Card
+            slug={post.slug}
+            title={post.id}
+            description=""
+          />
         ))
       }
-    </ul>
+    </div>
   </main>
 </Layout>

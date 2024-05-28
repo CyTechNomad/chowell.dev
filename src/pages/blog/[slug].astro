@@ -1,20 +1,23 @@
 ---
+import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import type { MarkdownContent } from "astro";
+import { getEntryBySlug } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob("../../content/blog/*.md");
+  const posts = await getCollection("blog");
 
-  return posts.map((post: MarkdownContent) => ({
+  return posts.map((post: CollectionEntry<"blog">) => ({
     params: {
-      slug: post.frontmatter.slug,
+      slug: post.slug,
     },
     props: {
       post,
     },
   }));
 }
-const { Content } = Astro.props.post;
+
+const post = await getEntryBySlug("blog", Astro.params.slug);
+const { Content, headings } = await post.render();
 ---
 
 <Layout title="CHowell.Dev">
@@ -33,8 +36,10 @@ const { Content } = Astro.props.post;
     padding-top: 1.5rem;
     background-color: whitesmoke;
     color: black;
-    .astro-code {
-      padding: 1rem;
+    * {
+      .astro-code {
+        padding: 1rem;
+      }
     }
   }
 

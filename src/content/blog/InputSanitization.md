@@ -1,11 +1,5 @@
 ---
-title: "The Importance of Input Sanitization: Safeguarding Your Application"
-description: "This article discusses the importance of input sanitization and how it can help safeguard your application from security vulnerabilities."
-date: 2024-05-19
-image: \photos\screenshot.png
 tags: ["security", "input sanitization", "web development"]
-slug: the-importance-of-input-sanitization-safeguarding-your-application
-url: blog/the-importance-of-input-sanitization-safeguarding-your-application
 ---
 
 # The Importance of Input Sanitization: Safeguarding Your Application
