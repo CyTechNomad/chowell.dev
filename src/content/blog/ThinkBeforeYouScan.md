@@ -9,8 +9,8 @@ tags: ["Security", "Awareness", "QR Codes"]
 
 QR codes have become a ubiquitous part of our daily lives, appearing on
 everything from product packaging to restaurant menus. While these scannable
-codes offer convenience and efficiency, they also pose hidden dangers that users
-should be aware of. In this article, we will explore the risks associated with
+codes offer convenience and efficiency, they also pose hidden dangers of which users
+should be aware. In this article, we will explore the risks associated with
 QR codes and provide tips on how to stay safe while using them.
 
 ## QR Codes: A Brief Overview
